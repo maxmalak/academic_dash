@@ -4,65 +4,66 @@
     <title>Your Dashboard</title>
     <style>
         body {
-            background: white;
-            font-family: 'Roboto', sans-serif;
+            background: #f2f2f2; /* Light grey to be soft on the eyes */
+            font-family: 'Times New Roman', serif; /* A traditional academic font */
         }
 
         .dashboard {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 25px auto;
-            max-width: 400px;
-            box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.2);
-            border-radius: 20px;
-            background: linear-gradient(to right, #12c2e9, #c471ed);
-            color: white;
-            padding: 20px;
+            margin: 50px auto;
+            max-width: 800px; /* Increase the dashboard size to give a broader view */
+            box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            background: #ffffff; /* White color for a professional look */
+            color: #333333; /* Dark grey for a professional look */
+            padding: 30px;
         }
 
         .title {
             text-align: center;
-            font-size: 24px;
-            margin-bottom: 10px;
+            font-size: 32px;
+            margin-bottom: 20px;
             font-weight: bold;
         }
 
         .subtitle {
             text-align: center;
-            font-size: 16px;
-            margin-bottom: 5px;
-            font-weight: medium;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: normal; /* Normal font weight for subtitle */
         }
 
         .statistics {
             display: flex;
             justify-content: space-around;
             width: 100%;
-            margin-bottom: 5px;
+            margin-bottom: 15px;
         }
 
         .item {
             text-align: center;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 18px;
         }
 
         .percentage {
-            font-size: 30px;
+            font-size: 36px;
             font-weight: bold;
-            margin-top: 5px;
+            margin-top: 10px;
         }
 
         .item:hover {
-            transform: scale(1.08);
+            transform: scale(1.05);
             transition: all 0.2s ease-in-out;
+            cursor: pointer; /* Add pointer cursor on hover to indicate interactivity */
         }
 
         #radar-chart {
-            height: 200px;
-            width: 200px;
-            margin-top: -60px;
+            height: 400px; /* Increase the radar chart size for better visualization */
+            width: 400px;
+            margin-top: -80px;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
