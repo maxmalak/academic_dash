@@ -4,7 +4,7 @@
     <title>Your Dashboard</title>
     <style>
         body {
-            background: #2f3640;
+            background: white;
             font-family: 'Roboto', sans-serif;
         }
 
@@ -12,12 +12,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-around;
             margin: 25px auto;
             max-width: 400px;
             box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.2);
             border-radius: 20px;
-            background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+            background: linear-gradient(to right, #12c2e9, #c471ed);
             color: white;
             padding: 20px;
         }
@@ -32,7 +31,7 @@
         .subtitle {
             text-align: center;
             font-size: 16px;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
             font-weight: medium;
         }
 
@@ -40,7 +39,7 @@
             display: flex;
             justify-content: space-around;
             width: 100%;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .item {
@@ -63,7 +62,7 @@
         #radar-chart {
             height: 200px;
             width: 200px;
-            margin-top: -20px; /* added to shift chart upward */
+            margin-top: -60px;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -93,15 +92,15 @@
         const aiDetectedTextPercentage = getParam('aiDetected');
         const plagiarismPercentage = getParam('plagiarism');
         const radarData = [getParam('data1'), getParam('data2'), getParam('data3'), getParam('data4'), getParam('data5')].map(Number);
-        
+
         document.getElementById('ai-percentage').innerHTML = aiDetectedTextPercentage + '%';
         document.getElementById('plagiarism-percentage').innerHTML = plagiarismPercentage + '%';
 
-        const radarLabels = ['Correspondence', 'Analysis', 'Sources', 'Organization', 'Originality'];
-        
+        var radarLabels = ['Correspondence', 'Analysis', 'Sources', 'Organization', 'Originality'];
+
         setTimeout(function() {
-            const ctx = document.getElementById('radar-chart').getContext('2d');
-            const chart = new Chart(ctx, {
+            var ctx = document.getElementById('radar-chart').getContext('2d');
+            var chart = new Chart(ctx, {
                 type: 'radar',
                 data: {
                     labels: radarLabels,
@@ -121,7 +120,17 @@
                     scales: {
                         r: {
                             suggestedMin: 0,
-                            suggestedMax: 10
+                            suggestedMax: 10,
+                            ticks: {
+                                color: 'black'
+                            
+                            },
+                            pointLabels: {
+                                color: 'white',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            }
                         }
                     },
                     responsive: true,
