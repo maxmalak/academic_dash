@@ -101,7 +101,6 @@
         }
 
         const aiDetectedTextPercentage = getParam('aiDetected');
-        const overallScorePercentage = getParam('overallScore');
         const plagiarismPercentage = getParam('plagiarism');
         const radarData = [getParam('data1'), getParam('data2'), getParam('data3'), getParam('data4'), getParam('data5')].map(Number);
         const backgroundColors = radarData.map(data => {
@@ -117,7 +116,6 @@
 
         document.getElementById('ai-percentage').innerHTML = aiDetectedTextPercentage + '%';
         document.getElementById('plagiarism-percentage').innerHTML = plagiarismPercentage + '%';
-        document.getElementById('score-percentage').innerHTML = overallScorePercentage + '%';
 
         var radarLabels = ['Correspondence', 'Analysis', 'Sources', 'Organization', 'Originality'];
 
