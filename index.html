@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Your Dashboard</title>
-    <style>
+   <style>
         body {
             background: #FFFFFF;
             font-family: 'Times New Roman', serif;
@@ -12,13 +12,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 0px auto;
+            margin: 20px auto;
             max-width: 800px;
-            border-radius: 0px;
+            border-radius: 15px;
             background: #ffffff;
             color: #333333;
-            padding: 3px;
-            border: 1px solid black;
+            padding: 20px;
+            border: 1px solid #dddddd;
+            box-shadow: 0px 10px 15px rgba(0,0,0,0.05);
         }
 
         .title {
@@ -26,6 +27,8 @@
             font-size: 32px;
             margin-bottom: 20px;
             font-weight: bold;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dddddd;
         }
 
         .subtitle {
@@ -54,7 +57,6 @@
             margin-top: 10px;
         }
 
-        /* Added a new class for the 'percentage' word */
         .small-italic {
             font-size: 16px;
             font-style: italic;
@@ -86,10 +88,6 @@
             <div class="item">
                 <p id="plagiarism">Plagiarism <span class="small-italic">Percentage</span></p>
                 <p class="percentage" id="plagiarism-percentage">0%</p>
-            </div>
-            <div class="item">
-                <p id="overall-score">Overall Academic <span class="small-italic">Score</span></p>
-                <p class="percentage" id="score-percentage">0%</p>
             </div>
         </div>
         <canvas id="radar-chart"></canvas>
