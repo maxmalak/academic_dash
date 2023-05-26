@@ -4,8 +4,8 @@
     <title>Your Dashboard</title>
     <style>
         body {
-            background: #FFFFFF; /* Light grey to be soft on the eyes */
-            font-family: 'Times New Roman', serif; /* A traditional academic font */
+            background: #FFFFFF;
+            font-family: 'Times New Roman', serif;
         }
 
         .dashboard {
@@ -13,12 +13,12 @@
             flex-direction: column;
             align-items: center;
             margin: 0px auto;
-            max-width: 800px; /* Increase the dashboard size to give a broader view */
-            box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.1);
+            max-width: 800px;
             border-radius: 10px;
-            background: #ffffff; /* White color for a professional look */
-            color: #333333; /* Dark grey for a professional look */
+            background: #ffffff;
+            color: #333333;
             padding: 3px;
+            border: 1px solid black;
         }
 
         .title {
@@ -32,7 +32,7 @@
             text-align: center;
             font-size: 20px;
             margin-bottom: 15px;
-            font-weight: normal; /* Normal font weight for subtitle */
+            font-weight: normal;
         }
 
         .statistics {
@@ -54,14 +54,20 @@
             margin-top: 10px;
         }
 
+        /* Added a new class for the 'percentage' word */
+        .small-italic {
+            font-size: 16px;
+            font-style: italic;
+        }
+
         .item:hover {
             transform: scale(1.05);
             transition: all 0.2s ease-in-out;
-            cursor: pointer; /* Add pointer cursor on hover to indicate interactivity */
+            cursor: pointer;
         }
 
         #radar-chart {
-            height: 400px; /* Increase the radar chart size for better visualization */
+            height: 400px;
             width: 400px;
             margin-top: -60px;
         }
@@ -69,20 +75,20 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-     <div class="dashboard">
+    <div class="dashboard">
         <h1 class="title">Title</h1>
         <h2 class="subtitle">Subtitle</h2>
         <div class="statistics">
             <div class="item">
-                <p id="ai-detected-text">AI Detected Text Percentage</p>
+                <p id="ai-detected-text">AI Detected Text <span class="small-italic">Percentage</span></p>
                 <p class="percentage" id="ai-percentage">0%</p>
             </div>
             <div class="item">
-                <p id="plagiarism">Plagiarism Percentage</p>
+                <p id="plagiarism">Plagiarism <span class="small-italic">Percentage</span></p>
                 <p class="percentage" id="plagiarism-percentage">0%</p>
             </div>
             <div class="item">
-                <p id="overall-score">Overall Academic Score</p>
+                <p id="overall-score">Overall Academic <span class="small-italic">Score</span></p>
                 <p class="percentage" id="score-percentage">0%</p>
             </div>
         </div>
