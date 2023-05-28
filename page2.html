@@ -31,7 +31,7 @@
       width: 0;
       background-color: #3498db;
       border-radius: 10px;
-      animation: progress 120s linear;
+      animation: progress 240s linear;
     }
     @keyframes progress {
       0%   {width: 0;}
@@ -46,8 +46,8 @@
       document.getElementById('retryMessage').classList.remove('hidden');
     }
 
-    // Show retry message after 2 minutes
-    setTimeout(showRetryMessage, 120 * 1000);
+    // Show retry message after 4 minutes
+    setTimeout(showRetryMessage, 240 * 1000);
   </script>
 </head>
 <body>
@@ -56,7 +56,7 @@
       <div class="progress-bar"></div>
     </div>
   </div>
-  <p>Processing...</p>
+  <p>Thanks for your patience. Your request is being processed. Depending on the complexity of the task, it may take up to 5 minutes, but typically it's much faster. We appreciate your understanding. You'll be notified as soon as it's ready. Please, do not refresh or close the page during this time. Thank you!</p>
   <p id="retryMessage" class="hidden">
     Please reload the page</a> and try again.
   </p>
