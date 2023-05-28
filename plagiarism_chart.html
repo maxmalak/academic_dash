@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Dashboard</title>
+    <style>
+        body {
+            background: #FFFFFF;
+            font-family: 'Droid Serif', serif;
+        }
+
+        .dashboard {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 15px;
+            background: #ffffff;
+            color: #333333;
+            padding: 20px;
+            border: 1px solid #dddddd;
+            box-shadow: 0px 10px 15px rgba(0,0,0,0.05);
+        }
+
+        .title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .statistics {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .item {
+            text-align: center;
+            font-weight: bold;
+            font-size: 32px;
+        }
+
+        .percentage {
+            font-size: 32px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .small-italic {
+            font-size: 32px;
+            font-style: italic;
+        }
+
+        .item:hover {
+            transform: scale(1.05);
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        #doughnut-chart {
+            height: 2px;
+            width: 2px;
+            margin-top: -40px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="statistics">
+            <div class="item">
+                <p id="plagiarism">Plagiarism <span class="small-italic">Percentage</span></p>
+                <p class="percentage" id="plagiarism-percentage">0%</p>
+            </div>
+        </div>
+        <canvas id="doughnut-chart"></canvas>
+    </div>
+    <script>
+        function getParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const plagiarismPercentage = getParam('plagiarism');
+
+        document.getElementById('plagiarism-percentage').innerHTML = plagiarismPercentage + '%';
+
+        setTimeout(function() {
+            var ctx = document.getElementById('doughnut-chart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Plagiarism', 'Original'],
+                    datasets: [{
+                        data: [plagiarismPercentage, 100 - plagiarismPercentage],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)', // red for Plagiarism
+                            'rgba(75, 192, 192, 0.2)'  // green for Original
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',   // red for Plagiarism
+                            'rgba(75, 192, 192, 1)'    // green for Original
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            display: true
+                        }
+                    }
+                }
+            });
+        }, 500);
+    </script>
+</body>
+</html>
