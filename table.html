@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Dashboard</title>
+   <style>
+        body {
+            background: #FFFFFF;
+            font-family: 'Droid Serif', serif;
+        }
+
+        .dashboard {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 15px;
+            background: #ffffff;
+            color: #333333;
+            padding: 20px;
+            border: 1px solid #dddddd;
+            box-shadow: 0px 10px 15px rgba(0,0,0,0.05);
+        }
+
+        .title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .score-table {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .score-table th, .score-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .score-table tr:nth-child(even){background-color: #f2f2f2;}
+
+        .score-table th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .red { background-color: rgba(255, 0, 0, 0.2); }
+        .orange { background-color: rgba(255, 165, 0, 0.2); }
+        .green { background-color: rgba(0, 255, 0, 0.2); }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1 class="title">Your Academic Paper Report</h1>
+        <table class="score-table" id="score-table"></table>
+    </div>
+    <script>
+        function getParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const radarData = [getParam('data1'), getParam('data2'), getParam('data3'), getParam('data4'), getParam('data5')].map(Number);
+
+        var radarLabels = ['Correspondence', 'Analysis', 'Sources', 'Organization', 'Originality'];
+
+        var tableHTML = `<tr><th>Category</th><th>Score</th></tr>`;
+        for(var i = 0; i < radarLabels.length; i++) {
+            let colorClass;
+            if(radarData[i] < 3) colorClass = 'red';
+            else if(radarData[i] < 7) colorClass = 'orange';
+            else colorClass = 'green';
+
+            tableHTML += `<tr class="${colorClass}"><td>${radarLabels[i]}</td><td>${radarData[i]}/10</td></tr>`;
+        }
+
+        document.getElementById('score-table').innerHTML = tableHTML;
+    </script>
+</body>
+</html>
