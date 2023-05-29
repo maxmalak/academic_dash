@@ -2,85 +2,86 @@
 <html>
 <head>
     <title>Your Dashboard</title>
-    <style>
-        body {
-            background: #FFFFFF;
-            font-family: 'Droid Serif', serif;
-        }
+      <style>
+    body {
+        background: #FFFFFF;
+        font-family: 'Droid Serif', serif;
+    }
 
-        .dashboard {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 20px auto;
-            max-width: 600px;
-            border-radius: 15px;
-            background: #ffffff;
-            color: #333333;
-            padding: 20px;
-            border: 1px solid #dddddd;
-            box-shadow: 0px 10px 15px rgba(0,0,0,0.05);
-        }
+    .dashboard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px auto;
+        max-width: 600px;
+        height: 300px; /* set height to be three times smaller if current height is 900px */
+        
+        border-radius: 15px;
+        background: #ffffff;
+        color: #333333;
+        padding: 20px;
+        border: 1px solid #dddddd;
+        box-shadow: 0px 10px 15px rgba(0,0,0,0.05);
+    }
 
-        .title {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 20px;
-            font-weight: bold;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #dddddd;
-        }
+    .title {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 20px;
+        font-weight: bold;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #dddddd;
+    }
 
-        .subtitle {
-            text-align: center;
-            font-size: 20px;
-            margin-bottom: 15px;
-            font-weight: normal;
-        }
+    .subtitle {
+        text-align: center;
+        font-size: 0px;
+        margin-bottom: 15px;
+        font-weight: normal;
+    }
 
-        .statistics {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-            margin-bottom: 15px;
-        }
+    .statistics {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        margin-bottom: 15px;
+    }
 
-        .item {
-            text-align: center;
-            font-weight: bold;
-            font-size: 32px;
-        }
+    .item {
+        text-align: center;
+        font-weight: bold;
+        font-size: 32px;
+    }
 
-        .percentage {
-            font-size: 32px;
-            font-weight: bold;
-            margin-top: 10px;
-        }
+    .percentage {
+        font-size: 0px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
 
-        .small-italic {
-            font-size: 32px;
-            font-style: italic;
-        }
+    .small-italic {
+        font-size: 32px;
+        font-style: italic;
+    }
 
-        .item:hover {
-            transform: scale(1.05);
-            transition: all 0.2s ease-in-out;
-            cursor: pointer;
-        }
+    .item:hover {
+        transform: scale(1.05);
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+    }
 
-        #doughnut-chart {
-            height: 2px;
-            width: 2px;
-            margin-top: -40px;
-        }
-    </style>
+    #doughnut-chart {
+        height: 0.37px; /* Adjusted from 2px to 0.67px */
+        width: 0.47px;  /* Adjusted from 2px to 0.67px */
+        margin-top: -30px;
+    }
+</style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="dashboard">
         <div class="statistics">
             <div class="item">
-                <p id="plagiarism">Plagiarism <span class="small-italic">Percentage</span></p>
                 <p class="percentage" id="plagiarism-percentage">0%</p>
             </div>
         </div>
