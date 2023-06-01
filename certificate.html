@@ -25,7 +25,7 @@
         background-color: #f9f9f9;
         padding: 50px;
         text-align: center;
-        width: 50%;
+        width: 60%;
         border-radius: 15px;
         border: 1px solid #ddd;
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
@@ -171,10 +171,10 @@
         </div>
     </div>
 
-  <script>
+<script>
 window.onload = function() {
     const urlParams = new URLSearchParams(window.location.search);
-    const aiText = urlParams.get('aiText');
+    const aiDetected = urlParams.get('aiDetected');
     const plagiarism = urlParams.get('plagiarism');
     const grade = urlParams.get('grade');
     const correspondence = urlParams.get('data1');
@@ -183,9 +183,9 @@ window.onload = function() {
     const organization = urlParams.get('data4');
     const originality = urlParams.get('data5');
 
-    document.getElementById('aiText').innerText = aiText ? `${aiText}%` : 'N/A';
+    document.getElementById('aiText').innerText = aiDetected ? `${aiDetected}%` : 'N/A';
     document.getElementById('plagiarism').innerText = plagiarism ? `${plagiarism}%` : 'N/A';
-    document.getElementById('grade').innerText = grade ? grade : 'N/A';
+    document.getElementById('grade').innerText = grade ? grade.toUpperCase() : 'N/A';
     document.getElementById('correspondence').innerText = correspondence ? `${correspondence}/10` : 'N/A';
     document.getElementById('analysis').innerText = analysis ? `${analysis}/10` : 'N/A';
     document.getElementById('sources').innerText = sources ? `${sources}/10` : 'N/A';
