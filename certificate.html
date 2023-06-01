@@ -25,7 +25,7 @@
         background-color: #f9f9f9;
         padding: 50px;
         text-align: center;
-        width: 40%;
+        width: 50%;
         border-radius: 15px;
         border: 1px solid #ddd;
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
@@ -171,31 +171,31 @@
         </div>
     </div>
 
-    <script>
-    // Function to get parameters from URL
-    function getUrlVars() {
-        var vars = {};
-        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
-            vars[key] = value;
-        });
-        return vars;
-    }
+  <script>
+window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const aiText = urlParams.get('aiText');
+    const plagiarism = urlParams.get('plagiarism');
+    const grade = urlParams.get('grade');
+    const correspondence = urlParams.get('data1');
+    const analysis = urlParams.get('data2');
+    const sources = urlParams.get('data3');
+    const organization = urlParams.get('data4');
+    const originality = urlParams.get('data5');
 
-    let params = getUrlVars();
-    let aiText = params['aiText'] ? params['aiText'] : 0;
-    let plagiarism = params['plagiarism'] ? params['plagiarism'] : 0;
-    let academicScore = params['academic_score'] ? params['academic_score'] : 0;
-    let grade = params['grade'] ? params['grade'] : 'N/A';
+    document.getElementById('aiText').innerText = aiText ? `${aiText}%` : 'N/A';
+    document.getElementById('plagiarism').innerText = plagiarism ? `${plagiarism}%` : 'N/A';
+    document.getElementById('grade').innerText = grade ? grade : 'N/A';
+    document.getElementById('correspondence').innerText = correspondence ? `${correspondence}/10` : 'N/A';
+    document.getElementById('analysis').innerText = analysis ? `${analysis}/10` : 'N/A';
+    document.getElementById('sources').innerText = sources ? `${sources}/10` : 'N/A';
+    document.getElementById('organization').innerText = organization ? `${organization}/10` : 'N/A';
+    document.getElementById('originality').innerText = originality ? `${originality}/10` : 'N/A';
 
-    document.getElementById('grade').textContent = grade;
-    document.getElementById('aiText').textContent = aiText + '%';
-    document.getElementById('plagiarism').textContent = plagiarism + '%';
-    document.getElementById('correspondence').textContent = academicScore + '/10';
-    document.getElementById('analysis').textContent = academicScore + '/10';
-    document.getElementById('sources').textContent = academicScore + '/10';
-    document.getElementById('organization').textContent = academicScore + '/10';
-    document.getElementById('originality').textContent = academicScore + '/10';
-    document.getElementById('date').textContent = `Review Date: ${new Date().toLocaleDateString()}`;
-    </script>
+    const date = new Date();
+    document.getElementById('date').innerText = `Issued on ${date.toDateString()}`;
+};
+</script>
+
 </body>
 </html>
