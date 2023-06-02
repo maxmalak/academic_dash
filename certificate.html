@@ -144,30 +144,55 @@ p, h3 {
     </div>
 
 <script>
-window.onload = function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const aiDetected = urlParams.get('aiDetected');
-    const plagiarism = urlParams.get('plagiarism');
-    const grade = urlParams.get('grade');
-    const correspondence = urlParams.get('data1');
-    const analysis = urlParams.get('data2');
-    const sources = urlParams.get('data3');
-    const organization = urlParams.get('data4');
-    const originality = urlParams.get('data5');
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
 
-    document.getElementById('aiText').innerText = aiDetected ? `${aiDetected}%` : 'N/A';
-    document.getElementById('plagiarism').innerText = plagiarism ? `${plagiarism}%` : 'N/A';
-    document.getElementById('grade').innerText = grade ? grade.toUpperCase() : 'N/A';
-    document.getElementById('correspondence').innerText = correspondence ? `${correspondence}/10` : 'N/A';
-    document.getElementById('analysis').innerText = analysis ? `${analysis}/10` : 'N/A';
-    document.getElementById('sources').innerText = sources ? `${sources}/10` : 'N/A';
-    document.getElementById('organization').innerText = organization ? `${organization}/10` : 'N/A';
-    document.getElementById('originality').innerText = originality ? `${originality}/10` : 'N/A';
+        let plagiarism = urlParams.get('plagiarism');
+        let aiText = urlParams.get('aiDetected');
+        let correspondence = urlParams.get('data1');
+        let analysis = urlParams.get('data2');
+        let sources = urlParams.get('data3');
+        let organization = urlParams.get('data4');
+        let originality = urlParams.get('data5');
 
-    const date = new Date();
-    document.getElementById('date').innerText = `Issued on ${date.toDateString()}`;
-};
+        // calculate score
+        let plagiarismScore = 2 * (100 - plagiarism);
+        let aiTextScore = 2 * (100 - aiText);
+        let correspondenceScore = correspondence * 10;
+        let analysisScore = analysis * 10;
+        let sourcesScore = sources * 10;
+        let organizationScore = organization * 10;
+        let originalityScore = originality * 10;
+
+        let totalScore = plagiarismScore + aiTextScore + correspondenceScore + analysisScore + sourcesScore + organizationScore + originalityScore;
+
+        // assign grade
+        let grade;
+        if (totalScore >= 900) {
+            grade = 'A';
+        } else if (totalScore >= 800) {
+            grade = 'B';
+        } else if (totalScore >= 700) {
+            grade = 'C';
+        } else if (totalScore >= 600) {
+            grade = 'D';
+        } else {
+            grade = 'F';
+        }
+
+        // set values in certificate
+        document.getElementById('plagiarism').innerHTML = plagiarism;
+        document.getElementById('aiText').innerHTML = aiText;
+        document.getElementById('correspondence').innerHTML = correspondence;
+        document.getElementById('analysis').innerHTML = analysis;
+        document.getElementById('sources').innerHTML = sources;
+        document.getElementById('organization').innerHTML = organization;
+        document.getElementById('originality').innerHTML = originality;
+        document.getElementById('grade').innerHTML = grade;
+        document.getElementById('date').innerHTML = new Date().toDateString();
+    }
 </script>
+
 
 </body>
 </html>
