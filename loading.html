@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loading Element</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .progress-bar {
+            position: relative;
+            height: 20px;
+            width: 80%;
+            border: 1px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 0;
+            left: 0;
+            top: 0;
+            background: linear-gradient(90deg, #8fcd58 0%, #2eb872 100%);
+            animation: progress 600s ease-out forwards;
+        }
+
+        @keyframes progress {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="progress-bar"></div>
+</body>
+</html>
